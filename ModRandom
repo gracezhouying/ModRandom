@@ -1,0 +1,61 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class ModRandom {
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+		int seed = 0;
+		int divisor = 0;
+		int number1 = 0;
+		int number2 = 0;
+		boolean status1 = true;
+		boolean status2 = true;
+		final int a = 10;
+		final int b = 1000;
+		
+		seed = scnr.nextInt();
+		System.out.println("Seed : "+seed);
+		
+		
+		Random randGen = new Random();
+		if(seed>0){
+		randGen.setSeed(seed);}
+		divisor = randGen.nextInt(a)+1;
+		number1 = randGen.nextInt(b)+1;
+		number2 = randGen.nextInt(b)+1;
+		
+		System.out.println("Divisor : "+divisor);
+		
+		if(number1%divisor==0){
+			status1 = true;
+			System.out.println("Number 1 : "+number1+" "+status1);
+		}
+		else {
+			status1 = false;
+			System.out.println("Number 1 : "+number1+" "+status1);
+			
+		}
+		
+		if(number2%divisor==0){
+			status2 = true;
+			System.out.println("Number 2 : "+number2+" "+status2);
+		}
+		else {
+			status2 = false;
+			System.out.println("Number 2 : "+number2+" "+status2);
+			
+		}
+		
+		if(status1==true && status2==true){
+			System.out.println("Very Lucky!");
+		}
+		else if(status1==true || status2==true){
+			System.out.println("Push");
+		}
+		else {
+			System.out.println("Not Your Day");
+		}
+		
+	}
+
+}
